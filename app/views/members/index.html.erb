@@ -1,0 +1,6 @@
+<h1> Members List </h1>
+
+
+<% @members.each do |member| %>
+<%= link_to member.name, member_path(member) %> <br><br><br>
+<% end %>

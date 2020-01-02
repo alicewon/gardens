@@ -1,0 +1,14 @@
+
+
+<h1><%= @garden.name %> <br></h1>
+<h5> Address: <%= @garden.address %> </h5><br>
+<p> <%= @garden.description %> </p><br>
+
+<p>Total Plots: <%= @garden.plots.count %></p>
+
+<p> Plants Growing Here: </p>
+
+<% @garden.plots.each do |plot| %>
+  <%= plot.occupied %>
+    
+<% end %>

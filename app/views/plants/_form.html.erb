@@ -1,0 +1,26 @@
+
+
+<%= flash[:message] %>
+<%= form_for @plant do |f| %>
+
+<p> Member Name:<%= f.collection_select(:member_id, Member.all, :id, :name) %> </p> <br>
+
+<p> Select Garden and Plot: <%= f.collection_select(:plot_id, Plot.all, :id, :plot_name) %> </p> <br>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %> <br>
+   
+    <%= f.label :height %>
+    <%= f.text_field :height %> <br>
+
+     <%= f.label :water %>
+    <%= f.text_field :water %> <br>
+
+     <%= f.label :sunlight %>
+    <%= f.text_field :sunlight %> <br>
+
+    <%= f.label :img_url %>
+    <%= f.text_field :img_url %> <br>
+
+    <%= f.submit %>
+<% end %>

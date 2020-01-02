@@ -20,11 +20,6 @@ ActiveRecord::Schema.define(version: 2019_12_30_223845) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "gardens_plots", id: false, force: :cascade do |t|
-    t.integer "garden_id", null: false
-    t.integer "plot_id", null: false
-  end
-
   create_table "members", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -39,17 +34,18 @@ ActiveRecord::Schema.define(version: 2019_12_30_223845) do
   create_table "plants", force: :cascade do |t|
     t.string "name"
     t.string "img_url"
-    t.date "date_planted"
     t.integer "height"
     t.string "water"
     t.string "sunlight"
     t.integer "member_id"
+    t.integer "plot_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "plots", force: :cascade do |t|
-    t.integer "plot_number"
+    t.integer "garden_id"
+    t.string "plot_name"
     t.boolean "occupied", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
