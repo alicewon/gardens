@@ -7,6 +7,16 @@ class PlotsController < ApplicationController
     @plot = Plot.find(params[:id])
   end
 
+  # def plot_update
+  #   @plots.each do |plot|
+  #     plot.occupied_status
+  #   end
+  # end
+
+  # def toggle_occupied
+  #   @blog.toggle!(:occupied)
+  # end
+
 private
 
 def plot_params

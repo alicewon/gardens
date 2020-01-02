@@ -93,11 +93,14 @@ puts "membersplots created"
 
 
 #plants
-30.times do
+50.times do
   
     seed = (0...50).map { ('a'..'z').to_a[rand(26)] }.join
 
-    Plant.create(name: plant_names.sample, img_url: "https://picsum.photos/seed/#{seed}/250", height: Faker::Measurement.height, water: scale.sample, sunlight: scale.sample, member_id: rand(1..25), plot_id:rand(1..26))
+    @plant = Plant.create(name: plant_names.sample, img_url: "https://picsum.photos/seed/#{seed}/250", height: Faker::Measurement.height, water: scale.sample, sunlight: scale.sample, member_id: rand(1..25), plot_id:rand(1..26))
+    
+    @plant.plot.occupied_status 
+    
   end
 
 

@@ -1,4 +1,13 @@
-<h1>Seattle Community Garden List </h1>
-<% @gardens.each do |garden| %>
-<%= link_to garden.name, garden_path(garden) %> <br>
-<% end %>
+
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-lg">
+      <h1>Seattle Community Garden List </h1>
+      <% @gardens.each do |garden| %>
+      <%= link_to garden.name, garden_path(garden) %> <br>
+      <% end %>
+
+    </div>
+  </div>
+</div>

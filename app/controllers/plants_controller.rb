@@ -22,6 +22,7 @@ class PlantsController < ApplicationController
     @plant = Plant.new(plant_params)
 
     if @plant.save
+      @plant.plot.occupied_status 
       flash[:success] = "Plant Created Successfully!"
       redirect_to plant_path(@plant)
     else
@@ -48,7 +49,12 @@ class PlantsController < ApplicationController
 
   def destroy
     @plant = Plant.find(params[:id])
+
+    plot = @plant.plot
+
     @plant.destroy
+    plot.occupied_status
+    
     redirect_to plants_path
 
   end

@@ -1,18 +1,26 @@
 
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-lg">
+      <h1><%= @garden.name %> <br></h1>
+      <div><img src= "<%= @garden.img_url %>" max-width="960" height="450"></img></div> <br>
+      <h5> Address: <%= @garden.address %> </h5>
+      
+      <p> <%= @garden.description %> </p><br>
+      <a href="<%= @garden.site_url %>">Visit Website</a>
 
-<h1><%= @garden.name %> <br></h1>
-<div><img src= "<%= @garden.img_url %>" max-width="960" height="450"></img></div> <br>
-<h5> Address: <%= @garden.address %> </h5>
-<a href="<%= @garden.site_url %>">Visit Website</a>
-<p> <%= @garden.description %> </p><br>
+      <p>Total Plots: <%= @garden.plots.count %></p>
 
-<p>Total Plots: <%= @garden.plots.count %></p>
+      <h3> Plants Growing at this location: </h3>
 
-<h3> Plants Growing at this location: </h3>
+      <% @garden.plots.each do |plot| %>
+        <% plot.plants.each do |plant| %>
+          <%= link_to plant.name, plant_path(plant) %><br>
+        <% end %>
+          
+      <% end %>
 
-<% @garden.plots.each do |plot| %>
-  <% plot.plants.each do |plant| %>
-    <%= link_to plant.name, plant_path(plant) %><br>
-  <% end %>
-    
-<% end %>
+    </div>
+  </div>
+</div>

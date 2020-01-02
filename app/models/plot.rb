@@ -6,4 +6,18 @@ class Plot < ApplicationRecord
 
   # if plot has plants
   #   occupied = true
+
+
+  def occupied_status 
+    if self.plants.count == 0
+      self.occupied = false
+    else
+      self.occupied = true
+    end
+
+    self.save
+    
+  end
+
+
 end
