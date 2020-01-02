@@ -4,6 +4,15 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.1'
 gem 'pry'
 gem 'faker', '~> 1.6', '>= 1.6.6'
+gem 'foundation-rails'
+gem 'autoprefixer-rails'
+gem 'foundation_form_builder'
+
+
+gem 'bootstrap', '~> 4.1.1'
+gem 'jquery-rails'
+
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2'
 # Use sqlite3 as the database for Active Record

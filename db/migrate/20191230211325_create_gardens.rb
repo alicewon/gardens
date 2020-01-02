@@ -4,6 +4,8 @@ class CreateGardens < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :address
       t.text :description
+      t.text :img_url
+      t.text :site_url
       t.timestamps
     end
   end

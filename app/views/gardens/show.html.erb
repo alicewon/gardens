@@ -1,14 +1,18 @@
 
 
 <h1><%= @garden.name %> <br></h1>
-<h5> Address: <%= @garden.address %> </h5><br>
+<div><img src= "<%= @garden.img_url %>" max-width="960" height="450"></img></div> <br>
+<h5> Address: <%= @garden.address %> </h5>
+<a href="<%= @garden.site_url %>">Visit Website</a>
 <p> <%= @garden.description %> </p><br>
 
 <p>Total Plots: <%= @garden.plots.count %></p>
 
-<p> Plants Growing Here: </p>
+<h3> Plants Growing at this location: </h3>
 
 <% @garden.plots.each do |plot| %>
-  <%= plot.occupied %>
+  <% plot.plants.each do |plant| %>
+    <%= link_to plant.name, plant_path(plant) %><br>
+  <% end %>
     
 <% end %>

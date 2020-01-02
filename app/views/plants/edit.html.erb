@@ -1,3 +1,23 @@
-<h1>Update Your Plant: <%= @plant.name %></h1>
-<%= render 'form' %> <br>
-<%= button_to "Delete Plant", plant_path(@plant), method: :delete %>
+
+
+
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-lg">
+
+      <h1>Update Your Plant: <%= @plant.name %></h1> <br>
+</div>
+  </div>
+</div>
+      <%= render 'form' %>
+
+     <div class="container">
+  <div class="row">
+    <div class="col-lg">
+      <br>
+    
+      <%= button_to "Delete Plant", plant_path(@plant), method: :delete %>
+      </div>
+  </div>
+</div>

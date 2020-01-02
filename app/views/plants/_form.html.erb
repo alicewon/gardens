@@ -1,9 +1,11 @@
 
-
+<div class="container">
+  <div class="row">
+    <div class="col-lg">
 <%= flash[:message] %>
 <%= form_for @plant do |f| %>
 
-<p> Member Name:<%= f.collection_select(:member_id, Member.all, :id, :name) %> </p> <br>
+<p> Member Name:<%= f.collection_select(:member_id, Member.all, :id, :name) %> </p> 
 
 <p> Select Garden and Plot: <%= f.collection_select(:plot_id, Plot.all, :id, :plot_name) %> </p> <br>
 
@@ -24,3 +26,7 @@
 
     <%= f.submit %>
 <% end %>
+
+  </div>
+  </div>
+</div>

@@ -1,22 +1,48 @@
-<h1> <%= @plant.name %>  </h1>
-<div><img src= "<%= @plant.img_url %>"></img></div> <br>
-<p>Height: <%= @plant.height %> inches </p><br>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-lg">
+      <h1> <%= @plant.name %>  </h1>
+    </div>
+  </div>
 
 
-<h3>Care Instructions:</h3>
-<p>Water Level: <%= @plant.water %></p> 
-<p>Sunlight Level: <%= @plant.sunlight %></p> <br>
+<br>
+<br>
 
-<h3>Other Information:</h3>
-<% owner = @members.find_by(id: @plant.member_id) %>
-<p>Owner: <%= link_to owner.name, member_path(owner) %> </p>
+  <div class="row">
+    <div class="col-md">
+      <div><img src= "<%= @plant.img_url %>"></img></div> <br>
+      <p>Height: <%= @plant.height %> inches </p><br>
+    </div>
 
-<% plot_location = @plots.find_by(id: @plant.plot_id) %>
-<% location = @gardens.find_by(id: plot_location.garden_id) %>
+    <div class="col-md">
 
-<p>Planted at: <%= link_to location.name, garden_path(location) %> </p>
-<p>Plot: <%= plot_location.plot_name %>
+      <h3>Care Instructions:</h3>
+      <p>Water Level: <%= @plant.water %></p> 
+      <p>Sunlight Level: <%= @plant.sunlight %></p> <br>
+    </div>
+  
+  </div>
 
 
+
+
+  <div class="row">
+    <div class="col-lg">
+      <h3>Other Information:</h3>
+      <% owner = @members.find_by(id: @plant.member_id) %>
+      <p>Owner: <%= link_to owner.name, member_path(owner) %> </p>
+
+      <% plot_location = @plots.find_by(id: @plant.plot_id) %>
+      <% location = @gardens.find_by(id: plot_location.garden_id) %>
+
+      <p>Planted at: <%= link_to location.name, garden_path(location) %> </p>
+      <p>Plot: <%= plot_location.plot_name %>
+  </div>
+  </div>
+
+
+</div>
 
 

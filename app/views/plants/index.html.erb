@@ -1,7 +1,20 @@
-<h1>Plants List </h1>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-lg">
+      <h1>Plants List </h1>
+    </div>
+  </div>
+<br><br>
 
 
-<% @plants.each do |plant| %>
-<div><img src= "<%= plant.img_url %>"></img></div>
-<%= link_to plant.name, plant_path(plant) %> <br><br><br>
-<% end %>
+  <div class="row">
+    
+      <% @plants.each do |plant| %>
+      <div class="col-sm">
+      <div><img src= "<%= plant.img_url %>" max-width="250" height="250"></img></div>
+      <%= link_to plant.name, plant_path(plant) %> <br><br><br>
+      </div>
+      <% end %>
+    
+  </div>
