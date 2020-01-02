@@ -8,9 +8,15 @@
       <h5> Address: <%= @garden.address %> </h5>
       
       <p> <%= @garden.description %> </p><br>
-      <a href="<%= @garden.site_url %>">Visit Website</a>
+      <a href="<%= @garden.site_url %>">Visit Website</a><br><br>
+      
+    
+    
 
-      <p>Total Plots: <%= @garden.plots.count %></p>
+      <p>Plots Available: <%= available_plots %></p>
+      <p>Total Plots: <%= total_plots %></p>
+           
+      <%= button_to "Add a New Plant", new_plant_path(@plant), method: :get %>
 
       <h3> Plants Growing at this location: </h3>
 

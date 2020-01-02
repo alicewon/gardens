@@ -20,4 +20,7 @@ class Plot < ApplicationRecord
   end
 
 
+
+
+
 end

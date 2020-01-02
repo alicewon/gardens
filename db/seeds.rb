@@ -93,7 +93,7 @@ puts "membersplots created"
 
 
 #plants
-50.times do
+100.times do
   
     seed = (0...50).map { ('a'..'z').to_a[rand(26)] }.join
 
