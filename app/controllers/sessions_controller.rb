@@ -1,17 +1,30 @@
 class SessionsController < ApplicationController
-  def new
-  end
 
+
+    # if !params[:name] || params[:name].empty?
+    #   redirect_to controller: 'sessions', action: 'new'
+    # else
+    #   session[:name] = params[:name]
+    #   redirect_to '/'
+    # end
   def create
-    if !params[:name] || params[:name].empty?
-      redirect_to controller: 'sessions', action: 'new'
+    # byebug
+    member = Member.find_by(name: params[:member][:name])
+    if member.try(:authenticate, params[:member][:password])
+        session[:member_id] = member.id
+        redirect_to :root
     else
-      session[:name] = params[:name]
-      redirect_to '/'
+        flash[:message] = "Wrong info!!!"
+        render :login
     end
   end
 
-  def destroy
-    session.delete :name
+  def login
   end
+
+  def destroy
+    session.delete :member_id
+  end
+
+  
 end

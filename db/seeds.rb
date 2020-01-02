@@ -30,7 +30,7 @@ Garden.create(name: "Seattle Farm School", address: "13701 NE 171st Street,
 Woodinville, WA 98072", description: "The Seattle Farm School is primarily for families and features its own children’s garden outside of the St. John the Baptist Episcopal Church. Seattle Farm School is dedicated to educating kids and their families in the growing of fresh produce so that everyone in the community is eating healthy and learning to enjoy the produce growing process. Much of the farm school’s produce, including various berries and other fruits, and vegetables like potatoes, carrots, squash and zucchini, goes to the community families that help maintain it, as well as to local food banks.", img_url:"https://theurbanfarm.org/wp-content/uploads/2018/12/Community_Garden_4edit-2000x1200.jpg", site_url: "www.seattlefarmschool.com" )
 
 
-plant_names = ["Fennel", "Spinach", "Romaine", "Kale", "Green Beans", "Cucumbers", "Yellow Summer Squash", "Radishes", "Carrots", "Bell Peppers", "Tomatoes", "Sunflower", "Rose", "Garlic", "Chives", "Basil", "Dahlia", "Tulip"]
+plant_names = ["Fennel", "Spinach", "Romaine", "Kale", "Green Beans", "Cucumbers", "Yellow Summer Squash", "Radishes", "Carrots", "Bell Peppers", "Tomatoes", "Sunflower", "Rose", "Garlic", "Chives", "Basil", "Dahlia", "Tulip", "Strawberries", "Snow Peas", "Blueberries", "Heirloom Tomatoes", "Arugula", "Chard", "Rosemary", "Thyme", "Potatoes", "Lettuce", "Jalapenos", "Zucchini", "Cilantro", "Dill", "Mint", "Parsley", "Honeysuckle", "Hydrangas", "Broccoli", "Peas", "Kidney Beans", "Brussel Sprouts", "Beets", "Green Bell Peppers", "Red Bell Peppers", "Orange Bell Peppers", ""]
 
 scale = ["low", "medium", "high"]
 puts "gardens created"
@@ -93,7 +93,7 @@ puts "membersplots created"
 
 
 #plants
-100.times do
+99.times do
   
     seed = (0...50).map { ('a'..'z').to_a[rand(26)] }.join
 

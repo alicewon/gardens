@@ -19,15 +19,15 @@ class MembersController < ApplicationController
     if @member.save
       redirect_to member_path(@member)
     else
-      flash[:message] = @member.errors.full_messages
-      render :new
+      flash[:login_message] = "Account has been created, please login."
+      redirect_to login_path
   end
 end
 
 private
 
 def member_params
-  params.require(:member).permit(:name)
+  params.require(:member).permit(:name, :password, :password_confirmation)
 end
 
 end

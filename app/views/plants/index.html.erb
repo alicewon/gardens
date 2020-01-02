@@ -13,7 +13,8 @@
       <% @plants.each do |plant| %>
       <div class="col-sm">
       <div><img src= "<%= plant.img_url %>" max-width="250" height="250"></img></div>
-      <%= link_to plant.name, plant_path(plant) %> <br><br><br>
+      <% owner = @members.find_by(id: plant.member_id) %>
+      <%= owner.name %>'s <%= link_to plant.name, plant_path(plant) %> <br><br><br>
       </div>
       <% end %>
     

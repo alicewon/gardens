@@ -1,6 +1,7 @@
 class PlantsController < ApplicationController
   def index
     @plants = Plant.all
+    @members = Member.all
   end
 
   def show

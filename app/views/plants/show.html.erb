@@ -2,7 +2,8 @@
 <div class="container">
   <div class="row">
     <div class="col-lg">
-      <h1> <%= @plant.name %>  </h1>
+    <% owner = @members.find_by(id: @plant.member_id) %>
+      <h1> <%= owner.name %>'s <%= @plant.name %>  </h1>
     </div>
   </div>
 

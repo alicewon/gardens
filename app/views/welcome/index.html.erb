@@ -20,7 +20,9 @@
         <h5 class="card-title"><%= link_to garden.name, garden_path(garden) %> <br></h5>
        
         <p class="card-text"> <%=garden.address %> </p>
-        <a href="#" class="btn btn-primary">View Garden</a>
+        
+
+        <div> <%= button_to "View Garden", garden_path(garden), method: :get %> </div>
 
       </div>
     </div>

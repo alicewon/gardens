@@ -8,6 +8,7 @@ gem 'foundation-rails'
 gem 'autoprefixer-rails'
 gem 'foundation_form_builder'
 
+gem 'bcrypt', '~> 3.1.7'
 
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
