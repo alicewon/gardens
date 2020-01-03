@@ -3,30 +3,63 @@
 <div class="container">
   <div class="row">
     <div class="col-lg">
-      <h1><%= @garden.name %> <br></h1>
-      <div><img src= "<%= @garden.img_url %>" max-width="960" height="450"></img></div> <br>
-      <h5> Address: <%= @garden.address %> </h5>
-      
+
+
+<div class="jumbotron">
+  <div class="container">
+    <h1 class="display-4" style="letter-spacing: 0px; color:#3c3838;"><%= @garden.name %></h1>
+
+  </div>
+</div>
+
+    <div class="row">
+    
+    <div class="col-md-5">
+    <h5> Address: <%= @garden.address %> </h5>
       <p> <%= @garden.description %> </p><br>
       <a href="<%= @garden.site_url %>">Visit Website</a><br><br>
+    </div>
+
+    <div class="col-md-7">
+      <div><img class="garden-image" src= "<%= @garden.img_url %>" max-width="960" height="450"></img></div> <br>
       
+    </div>
+    </div>
     
-    
+    <div class="plots-count">
+      <div class="container">
+        <div class="row">
+          <div class="col-md">
+              <span class="badge badge-success">Plots Available: <%= available_plots %></span>
+            </div>
+            <div class="col-md">
+              <span class="badge badge-success">Total Plots: <%= total_plots %></span>
+          </div>
+        </div>
+      </div>
+    </div>
+   
 
-      <p>Plots Available: <%= available_plots %></p>
-      <p>Total Plots: <%= total_plots %></p>
-           
-      <%= button_to "Add a New Plant", new_plant_path(@plant), method: :get %>
 
-      <h3> Plants Growing at this location: </h3>
 
+      <h3 style="text-align: center;"> Plants Growing at this location: </h3>
+
+
+
+      <p class="garden-plant-list">
+      <ul class="list-group-flush">
       <% @garden.plots.each do |plot| %>
         <% plot.plants.each do |plant| %>
-          <%= link_to plant.name, plant_path(plant) %><br>
+          <li class="list-group-item"><%= link_to plant.name, plant_path(plant) %></li>
         <% end %>
+      
           
       <% end %>
-
+      </ul>
+</p>
+    <div class="add-plant-button">
+    <%= button_to "Add a New Plant", new_plant_path(@plant), method: :get %> 
+    </div>
     </div>
   </div>
 </div>

@@ -1,9 +1,35 @@
+
+<div class="login-styles"> 
+<h4 style="text-align: center; margin-bottom: 40px;">Sign Up to become a Member</h4>
+<div class="container">
+  <div class="row">
+  <div class="col-md-4"></div>
+    <div class="col-md-4">
+
 <%= form_for @member do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <%= f.label :password %>
-    <%= f.text_field :password %>
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-    <%= f.submit %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %><br><br>
+    <%= f.label :password %><br>
+    <%= f.text_field :password %><br><br>
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation %><br><br>
+    <%= f.submit "Create Account"%>
 <% end %>
+</div>
+
+<div class="col-md-4"></div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

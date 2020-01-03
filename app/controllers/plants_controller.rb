@@ -1,10 +1,15 @@
 class PlantsController < ApplicationController
+  before_action :require_login
+  skip_before_action :require_login, only: [:index]
+
   def index
     @plants = Plant.all
     @members = Member.all
+
   end
 
   def show
+    # return head(:forbidden) unless session.include? :member_id
     @plant = Plant.find(params[:id])
     @members = Member.all
     @gardens = Garden.all
@@ -60,10 +65,24 @@ class PlantsController < ApplicationController
 
   end
 
+  def current_user
+    session[:name]
+  end
+
 private
 
 def plant_params
   params.require(:plant).permit(:name, :img_url, :date_planted, :height, :water, :sunlight, :member_id, :plot_id)
+end
+
+def require_login
+  # return head(:forbidden) unless session.include? :member_id
+  # unless current_user
+  if !logged_in?
+  # flash[:error] = "You must be logged in to view this page."
+  flash[:login_message] = "You must be logged in to view this page."
+  redirect_to controller: 'sessions', action: 'login' unless current_user
+  end
 end
 
 end

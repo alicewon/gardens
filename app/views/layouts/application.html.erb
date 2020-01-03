@@ -12,18 +12,31 @@
   <body>
       <div>
       <header class="navbar navbar-dark bg-dark">
-        <a class="navbar-brand navbar-text" href="/"><img src="http://www.budapestjobs.net/wp-content/uploads/company_logos/2018/09/PlanetPlanrIdentification.png" width="50" height="50"> </a> 
-        <ul class="nav nav-pills nav-fill">
+        <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="/plants">Plants</a>
+            <a class="navbar-brand navbar-text" href="/"><img src="http://www.budapestjobs.net/wp-content/uploads/company_logos/2018/09/PlanetPlanrIdentification.png" width="50" height="50"> </a> 
           </li>
-          <li class="nav-item">
+        
+          <li class="links-nav nav-item">
+            <a class="nav-link" href="/gardens">Gardens</a>
+          </li>
 
-          <% if session[:member_id] %>
-            <a class="nav-link" <%= link_to "My Profile", member_path(session[:member_id]) %> </a>
-          <% end %>
-          
+          <li class="links-nav nav-item">
+            <a class="nav-link" href="/plants">All Plants</a>
           </li>
+
+           <% if session[:member_id] %>
+          <li class="links-nav nav-item">
+            <a class="nav-link" href="/plants/new">Add a Plant</a>
+          </li>
+           <% end %>
+
+          <li class="nav-item">
+            <% if session[:member_id] %>
+              <li class="links-nav nav-item"><a class="nav-link" <%= link_to "My Profile", member_path(session[:member_id]) %> </a></li>
+            <% end %>
+          </li>
+          
         </ul>
         <form class="form-inline">
 
@@ -33,16 +46,18 @@
 
 
         <% if session[:member_id] %>
-       <%= link_to "Log out", logout_path, :method => :delete %>
+       <div class="logout-button"> <button class="btn btn-outline-success" type="button"> <%= link_to "Log out", logout_path, :method => :delete %></button></div>
         <% end %>
 
        
 
 
-
+        <% if !session[:member_id] %>
         <div style="padding-left: 10px;">
           <a href= "/signup"><button class="btn btn-outline-success" type="button">Signup</button></a>
         </div>
+        <% end %>
+        
       </form>
       </header>
 
@@ -50,10 +65,7 @@
     </div>
     
     <%= yield %>
-   
-          <footer>
-            <p>This is the footer</p>
-          </footer>
+
 
   </body>
 </html>

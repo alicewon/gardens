@@ -4,10 +4,11 @@ class MembersController < ApplicationController
   end
 
   def show
+    # return head(:forbidden) unless session.include? :member_id
     @member = Member.find(params[:id])
     @plots = Plot.all
     @gardens = Garden.all
-    # if session[:member_id] != params[:id]
+    # if session[:member_id] != params[:id].to_i
     #   flash[:message] = "You are not authorized to view this page"
     #   redirect_to members_path
     # end
@@ -21,9 +22,11 @@ class MembersController < ApplicationController
     @member = Member.new(member_params)
 
     if @member.save
-      redirect_to member_path(@member)
-    else
       flash[:login_message] = "Account has been created, please login."
+      # redirect_to member_path(@member)
+      redirect_to login_path
+    else
+      # flash[:login_message] = "Account has been created, please login."
       redirect_to login_path
   end
 end
