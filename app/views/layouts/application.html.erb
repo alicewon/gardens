@@ -13,11 +13,35 @@
       <div>
       <header class="navbar navbar-dark bg-dark">
         <a class="navbar-brand navbar-text" href="/"><img src="http://www.budapestjobs.net/wp-content/uploads/company_logos/2018/09/PlanetPlanrIdentification.png" width="50" height="50"> </a> 
+        <ul class="nav nav-pills nav-fill">
+          <li class="nav-item">
+            <a class="nav-link" href="/plants">Plants</a>
+          </li>
+          <li class="nav-item">
 
+          <% if session[:member_id] %>
+            <a class="nav-link" <%= link_to "My Profile", member_path(session[:member_id]) %> </a>
+          <% end %>
+          
+          </li>
+        </ul>
         <form class="form-inline">
-        <button class="btn btn-outline-primary" type="button">Test button</button>
+
+        <% if !session[:member_id] %>
+        <a href= "/login"><button class="btn btn-outline-success" type="button">Login</button></a>
+        <% end %>
+
+
+        <% if session[:member_id] %>
+       <%= link_to "Log out", logout_path, :method => :delete %>
+        <% end %>
+
+       
+
+
+
         <div style="padding-left: 10px;">
-          <button class="btn btn-outline-success" type="button">Second Test button</button>
+          <a href= "/signup"><button class="btn btn-outline-success" type="button">Signup</button></a>
         </div>
       </form>
       </header>
