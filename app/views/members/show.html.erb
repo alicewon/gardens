@@ -1,12 +1,66 @@
-<h1> Member Profile </h1>
+<h1 style="text-align: center; margin-top: 60px;"> Member Profile </h1>
 
 
-<h3> <%= @member.name %>'s Plants: </h3>
-<% @member.plants.each do |plant| %>
 
-<% plant_plot = plant.plot_id %>
-<% plot_location = @plots.find_by(id: plant.plot.id) %>
-<% garden_location = @gardens.find_by(id: plot_location.garden_id) %>
 
-<%= link_to plant.name, plant_path(plant) %>  // Height: <%= plant.height %> inches // <%= link_to garden_location.name, garden_path(garden_location) %> <br>
+<% if @member.plants.count > 0 %>
+<div class="container">
+<div class="row">
+<div class="col-lg-2"></div>
+<div class="col-lg-8">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Plant</th>
+      <th scope="col">Height (in.)</th>
+      <th scope="col">Location</th>
+    </tr>
+  </thead>
+  <tbody>
+  <h3 style="text-align: center; margin-top: 40px;"> <%= @member.name %>'s Plants: </h3> <br>
+        <% @member.plants.each do |plant| %>
+
+        <% plant_plot = plant.plot_id %>
+        <% plot_location = @plots.find_by(id: plant.plot.id) %>
+        <% garden_location = @gardens.find_by(id: plot_location.garden_id) %>
+    <tr>
+      <th scope="row"><%= link_to plant.name, plant_path(plant) %></th>
+      <td><%= plant.height %> </td>
+      <td><%= link_to garden_location.name, garden_path(garden_location) %></td>
+  <% end %>
+    </tr>
+    
+  </tbody>
+</table>
+</div>
+<div class="col-lg-2"></div>
+</div>
+</div>
 <% end %>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"></div>
+  <div class="col-md-4">
+  <% if @member.plants.count == 0 %>
+    <h4 style="text-align: center; margin: 20px;">No plants yet.</h4>
+  <% end %>
+  </div>
+  <div class="col-md-4"></div>
+  </div>
+</div>
+
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-5"></div>
+      <div class="col-md-2">
+        <div class="member-add-plant-button">
+          <%= button_to "Add a New Plant", new_plant_path(@plant), method: :get %> 
+        </div>
+      <div class="col-md-5"></div>
+    </div>
+  </div>
+</div>

@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-lg">
     <% owner = @members.find_by(id: @plant.member_id) %>
-      <h1> <%= owner.name %>'s <%= @plant.name %>  </h1>
+      <h1 style="text-align: center; margin-top: 40px;"> <%= owner.name %>'s <br><%= @plant.name.upcase %>  </h1>
     </div>
   </div>
 
@@ -12,38 +12,43 @@
 <br>
 
   <div class="row">
-    <div class="col-md">
-      <div><img src= "<%= @plant.img_url %>"></img></div> <br>
-      <p>Height: <%= @plant.height %> inches </p><br>
-      
-    </div>
 
-    <div class="col-md">
-
+    <div class="col-md-4">
       <h3>Care Instructions:</h3>
       <p>Water Level: <%= @plant.water %></p> 
-      <p>Sunlight Level: <%= @plant.sunlight %></p> <br>
+      <p>Sunlight Level: <%= @plant.sunlight %></p> 
+      <p>Height: <%= @plant.height %> inches </p><br>
+      <div class="edit-plant-button">
+      <%= button_to "Edit Plant", edit_plant_path(@plant), method: :get %>
+      </div>
     </div>
+
+  
+      <div class="col-md-4">
+        <div class="plant-show-image"><img src= "<%= @plant.img_url %>"></img></div> <br>
+    
+      </div>
+
+
+    <div class="col-md-4">
+      <h3>Additional Information:</h3>
+      <% owner = @members.find_by(id: @plant.member_id) %>
+      <p>Owner: <br> <%= link_to owner.name, member_path(owner) %> </p>
+
+      <% plot_location = @plots.find_by(id: @plant.plot_id) %>
+      <% location = @gardens.find_by(id: plot_location.garden_id) %>
+
+      <p>Planted at: <br> <%= link_to location.name, garden_path(location) %> </p>
+      <p>Plot: <br><%= plot_location.plot_name %>
+
+      
+      <br>
+  </div>
   
   </div>
 
 
 
-  <div class="row">
-    <div class="col-lg">
-      <h3>Additional Information:</h3>
-      <% owner = @members.find_by(id: @plant.member_id) %>
-      <p>Owner: <%= link_to owner.name, member_path(owner) %> </p>
-
-      <% plot_location = @plots.find_by(id: @plant.plot_id) %>
-      <% location = @gardens.find_by(id: plot_location.garden_id) %>
-
-      <p>Planted at: <%= link_to location.name, garden_path(location) %> </p>
-      <p>Plot: <%= plot_location.plot_name %>
-      <%= button_to "Edit Plant", edit_plant_path(@plant), method: :get %>
-      <br>
-  </div>
-  </div>
 
 
 </div>

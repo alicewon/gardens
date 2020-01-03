@@ -1,33 +1,46 @@
 
+<div class="login-styles">
 <div class="container">
   <div class="row">
-    <div class="col-lg">
-<%= flash[:message] %>
-<%= form_for @plant do |f| %>
-
-<p> Member Name:<%= f.collection_select(:member_id, Member.all, :id, :name) %> </p> 
-
-<p> Select Garden and Plot: <%= f.collection_select(:plot_id, Plot.all, :id, :plot_name) %> </p> <br>
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
 
 
-    <%= f.label :name %>
-    <%= f.text_field :name %> <br>
-   
-    <%= f.label :height %>
-    <%= f.text_field :height %> <br>
-
-     <%= f.label :water %>
-    <%= f.text_field :water %> <br>
-
-     <%= f.label :sunlight %>
-    <%= f.text_field :sunlight %> <br>
-
-    <%= f.label :img_url %>
-    <%= f.text_field :img_url %> <br>
-
-    <%= f.submit %>
+<% flash.each do |type, msg| %>
+    <div class="alert alert-info">
+        <%= msg %>
+    </div>
 <% end %>
 
+
+<%= form_for @plant do |f| %>
+
+<p> Member Name:<br><%= f.collection_select(:member_id, Member.all, :id, :name) %> </p> 
+
+<p> Select Garden and Plot: <br><%= f.collection_select(:plot_id, Plot.all, :id, :plot_name) %> </p> <br>
+
+
+    <%= f.label :name %><br>
+    <%= f.text_field :name %> <br><br>
+   
+    <%= f.label "Height (in inches):"%><br>
+    <%= f.text_field :height %> <br><br>
+
+     <%= f.label "Water (low, medium, or high):" %><br>
+    <%= f.text_field :water %> <br><br>
+
+     <%= f.label "Sunlight (low, medium, or high):" %><br>
+    <%= f.text_field :sunlight %> <br><br>
+
+    <%= f.label "Image URL:"%><br>
+    <%= f.text_field :img_url %> <br><br>
+  <div class="form-submit-button">
+    <%= f.submit %>
+  </div>
+<% end %>
+  <div class="col-lg-3"></div>
   </div>
   </div>
 </div>
+</div>
+

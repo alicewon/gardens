@@ -6,7 +6,7 @@
   <div class="row">
     <div class="col-lg">
 
-      <h1>Update Your Plant: <%= @plant.name %></h1> <br>
+      <h1 style="text-align: center; margin-top: 40px;">Update Plant:<br> <%= @plant.name.upcase %></h1>
 </div>
   </div>
 </div>
@@ -14,11 +14,14 @@
 
      <div class="container">
   <div class="row">
-    <div class="col-lg">
+  <div class="col-md-5"></div>
+    <div class="col-md-2">
       <br>
-    
+      <div class="delete-plant-button">
       <%= button_to "Delete Plant", plant_path(@plant), method: :delete %>
+      </div>
       <br>
       </div>
+      <div class="col-md-5"></div>
   </div>
 </div>

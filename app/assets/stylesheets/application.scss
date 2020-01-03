@@ -27,6 +27,36 @@
 }
 
 
+.card {
+  margin-bottom: 40px;
+  border: 1px solid #2196F3;
+}
+
+.jumbotron {
+  background: rgb(219,240,27);
+  background: linear-gradient(357deg, rgba(219,240,27,1) 0%, rgba(50,134,7,1) 100%);
+}
+
+.btn-primary {
+  background-color: #328607;
+  border-color: #328607;
+}
+
+a {
+  color: #1069b7;
+}
+
+
+input[type="submit"] {
+  background-color: green;
+  color: #f4f4f4;
+  border-radius: 0.25rem;
+  padding: 0.375rem 0.75rem;
+}
+
+
+
+
 // NAV BAR
 
 .links-nav {
@@ -59,41 +89,16 @@
 
 
 // LOGIN PAGE
+
 .login-styles input {
-  // text-align: center;
   width: 100%;
-  border-radius: .3rem;
 }
 
 .login-styles {
   margin-top: 60px;
 }
 
-.card {
-  margin-bottom: 40px;
-}
 
-.jumbotron {
-  background: rgb(219,240,27);
-  background: linear-gradient(357deg, rgba(219,240,27,1) 0%, rgba(50,134,7,1) 100%);
-}
-
-.btn-primary {
-  background-color: #328607;
-  border-color: #328607;
-}
-
-a {
-  color: #1069b7;
-}
-
-
-input[type="submit"] {
-  background-color: green;
-  color: #f4f4f4;
-  border-radius: 0.25rem;
-  padding: 0.375rem 0.75rem;
-}
 
 // GARDEN SHOW PAGE
 
@@ -136,6 +141,11 @@ input[type="submit"] {
 }
 
 
+// GARDEN INDEX 
+.garden-index-page-inner {
+  margin-top: 40px;
+}
+
 // PLANTS SHOW PAGE
 .plant-index-owner {
   text-align: center;
@@ -144,6 +154,46 @@ input[type="submit"] {
 
 .plant-index-photo img {
   border-radius: 10rem;
+}
+
+.plant-show-image{
+  text-align: center;
+}
+
+.plant-show-image img {
+  max-width: 300px;
+}
+
+.plant-index-photo img {
+  width: 250px;
+}
+
+
+// NEW PLANT PAGE
+
+input{
+  width: 100%;
+}
+
+// EDIT PLANT PAGE
+.edit-plant-button{
+  width: 30%;
+}
+
+.delete-plant-button input {
+  background-color: red;
+}
+
+.form-submit-button {
+  width: 50%;
+  margin: auto;
+  margin-bottom: 40px;
+}
+
+
+// MEMBER SHOW PAGE
+.member-add-plant-button {
+
 }
 
 

@@ -8,6 +8,7 @@ class MembersController < ApplicationController
     @member = Member.find(params[:id])
     @plots = Plot.all
     @gardens = Garden.all
+    @plants = Plant.all
     # if session[:member_id] != params[:id].to_i
     #   flash[:message] = "You are not authorized to view this page"
     #   redirect_to members_path
