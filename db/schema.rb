@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2019_12_30_223845) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "gardens", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -30,8 +33,8 @@ ActiveRecord::Schema.define(version: 2019_12_30_223845) do
   end
 
   create_table "members_plots", id: false, force: :cascade do |t|
-    t.integer "member_id", null: false
-    t.integer "plot_id", null: false
+    t.bigint "member_id", null: false
+    t.bigint "plot_id", null: false
   end
 
   create_table "plants", force: :cascade do |t|

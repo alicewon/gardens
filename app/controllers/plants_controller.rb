@@ -29,7 +29,7 @@ class PlantsController < ApplicationController
 
     if @plant.save
       @plant.plot.occupied_status 
-      flash[:success] = "Plant Created Successfully!"
+      # flash[:success] = "Plant Created Successfully!"
       redirect_to plant_path(@plant)
     else
       flash[:message] = @plant.errors.full_messages

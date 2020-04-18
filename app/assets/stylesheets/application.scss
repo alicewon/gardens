@@ -1,40 +1,73 @@
 
 
  @import "bootstrap";
+ @import url('https://fonts.googleapis.com/css?family=Contrail+One&display=swap');
+ @import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
+ @import url('https://fonts.googleapis.com/css?family=Lato|Montserrat&display=swap');
 
  // GENERAL STYLES, BOOTSTRAP OVERRIDES
 
  body {
   position: relative;
   min-height: 120vh;
+  font-family: 'Montserrat', sans-serif;
  }
 
+ p {
+  font-family: 'Lato', sans-serif;
+ }
 .gardenindex {
   padding-top: 30px;
   text-align: center; 
 
 }
+
 .display-4 {
-  letter-spacing: 22px;
-  color: powderblue;
+  letter-spacing: 3px;
+  font-size: 50px;
+  color: #015a08;
   text-align: center;
   font-weight: 200;
+  // font-family: 'Contrail One', cursive;
+  font-family: 'Lato', sans-serif;
 }
 
 .lead {
-  color: #504e4e;
+  color: #344f0b;
   text-align: center;
+  text-transform: uppercase;
+  padding-top: 20px;
+  letter-spacing: 2px;
+  font-size: 18px;
 }
 
 
 .card {
   margin-bottom: 40px;
-  border: 1px solid #2196F3;
+  border: 1px solid #cccfcc;
+}
+
+.card-title {
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.card-text {
+  font-size: 14px;
+  color: #747474;
 }
 
 .jumbotron {
-  background: rgb(219,240,27);
-  background: linear-gradient(357deg, rgba(219,240,27,1) 0%, rgba(50,134,7,1) 100%);
+  background: rgb(96,160,1);
+  background: linear-gradient(0deg, rgba(96,160,1,1) 0%, rgba(206,237,159,1) 100%);
+  background: #bbecb7;
+}
+.jumbotron .display-5 {
+  font-size: 86px;
+  text-align: center;
+  color: #03500c;
 }
 
 .btn-primary {
@@ -55,7 +88,9 @@ input[type="submit"] {
 }
 
 
-
+.card-img-top {
+  height: 188px;
+}
 
 // NAV BAR
 
@@ -63,7 +98,7 @@ input[type="submit"] {
   margin-top:13px;
 }
 .navbar-dark{
-  background-color: #033509!important;
+  background-color: #23523a!important;
 }
 
 .links-nav a {
@@ -106,6 +141,7 @@ input[type="submit"] {
   max-width: 600px;
   float: right;
   border-radius: 0.3rem;
+  max-height: 365px;
 }
 
 .garden-plant-list {
@@ -120,7 +156,7 @@ input[type="submit"] {
 
 .plots-count {
   text-align: center;
-  background-color: #aed415;
+  background-color: #bbecb7;
   border-radius: 0.3rem;
   padding-bottom: 20px;
   padding-top: 20px;

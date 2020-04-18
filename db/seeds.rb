@@ -9,10 +9,11 @@ require 'faker'
 require 'pry'
 
 25.times do
-  Member.create(name: Faker::Name.first_name)
+  Member.create(name: Faker::Name.first_name, password: '123')
 end
-
 puts "members created"
+
+
 #gardens
 Garden.create(name: "Danny Woo International District Community Gardens", address: "620 S Main St, Seattle, WA 98104", description: "T​he Danny Woo Community Garden was founded in 1975 and is located in Seattle’s Chinatown-International District at 620 South Main Street. The Garden is approximately 1.5 acres and contains nearly 100 plots that are cultivated and cared for by elderly Asian immigrant residents of the neighborhood. The garden is also home to a childrens garden, chicken coop, outdoor kitchen, and fruit tree orchard. As the largest green space in the Chinatown/International District and Little Saigon area, the Danny Woo Community Garden is an essential place for the surrounding community to engage with nature, access safe and healthy food, and build cohesion with neighbors.", img_url:"https://www.dannywoogarden.org/uploads/7/4/5/4/74547981/7335044_orig.jpg", site_url: "https://www.dannywoogarden.org/" )
 
@@ -27,13 +28,12 @@ Bellevue WA 98005", description: "At Tilth Alliance we want everyone to eat well
 Garden.create(name: "Magnuson Community Garden", address: "6344 NE 74th St Sand Point, WA 98005", description: "The mission of the Magnuson Community Garden is to enhance the quality of urban life and strengthen community bonds by creating and sustaining an organic garden in Sand Point Magnuson Park that will foster environmental stewardship, horticultural education, rejuvenation, and recreation. Magnuson Community Garden is a four acre multipurpose community garden located on Seattle’s Sand Point Peninsula. Designed with the entire community in mind, the garden has an outdoor amphitheater for concerts and events, a children’s garden, a native plant demonstration area, a native plant nursery, a demonstration orchard and a p-patch.", img_url:"https://i2.wp.com/magnusongarden.org/wp-content/uploads/2015/11/Garden-3.jpg?w=1720", site_url: "http://magnusongarden.org/" )
 
 Garden.create(name: "Seattle Farm School", address: "13701 NE 171st Street,
-Woodinville, WA 98072", description: "The Seattle Farm School is primarily for families and features its own children’s garden outside of the St. John the Baptist Episcopal Church. Seattle Farm School is dedicated to educating kids and their families in the growing of fresh produce so that everyone in the community is eating healthy and learning to enjoy the produce growing process. Much of the farm school’s produce, including various berries and other fruits, and vegetables like potatoes, carrots, squash and zucchini, goes to the community families that help maintain it, as well as to local food banks.", img_url:"https://theurbanfarm.org/wp-content/uploads/2018/12/Community_Garden_4edit-2000x1200.jpg", site_url: "www.seattlefarmschool.com" )
+Woodinville, WA 98072", description: "The Seattle Farm School is primarily for families and features its own children’s garden outside of the St. John the Baptist Episcopal Church. Seattle Farm School is dedicated to educating kids and their families in the growing of fresh produce so that everyone in the community is eating healthy and learning to enjoy the produce growing process. Much of the farm school’s produce, including various berries and other fruits, and vegetables like potatoes, carrots, squash and zucchini, goes to the community families that help maintain it, as well as to local food banks.", img_url:"https://foodtank.com/wp-content/uploads/2017/10/food-tank-farm-to-school-e1507041736192.jpg", site_url: "www.seattlefarmschool.com" )
 
-
-plant_names = ["Fennel", "Spinach", "Romaine", "Kale", "Green Beans", "Cucumbers", "Yellow Summer Squash", "Radishes", "Carrots", "Bell Peppers", "Tomatoes", "Sunflower", "Rose", "Garlic", "Chives", "Basil", "Dahlia", "Tulip", "Strawberries", "Snow Peas", "Blueberries", "Heirloom Tomatoes", "Arugula", "Chard", "Rosemary", "Thyme", "Potatoes", "Lettuce", "Jalapenos", "Zucchini", "Cilantro", "Dill", "Mint", "Parsley", "Honeysuckle", "Hydrangas", "Broccoli", "Peas", "Kidney Beans", "Brussel Sprouts", "Beets", "Green Bell Peppers", "Red Bell Peppers", "Orange Bell Peppers", ""]
-
-scale = ["low", "medium", "high"]
 puts "gardens created"
+
+
+
 
 
 
@@ -87,12 +87,17 @@ puts "plots created"
 
 #membersplots
 26.times do
-  MembersPlots.create(member_id: rand(1..20), plot_id: rand(1..26))
+  MembersPlots.create(member_id: rand(1..25), plot_id: rand(1..26))
 end
 puts "membersplots created"
 
 
 #plants
+
+plant_names = ["Fennel", "Spinach", "Romaine", "Kale", "Green Beans", "Cucumbers", "Yellow Summer Squash", "Radishes", "Carrots", "Bell Peppers", "Tomatoes", "Sunflower", "Rose", "Garlic", "Chives", "Basil", "Dahlia", "Tulip", "Strawberries", "Snow Peas", "Blueberries", "Heirloom Tomatoes", "Arugula", "Chard", "Rosemary", "Thyme", "Potatoes", "Lettuce", "Jalapenos", "Zucchini", "Cilantro", "Dill", "Mint", "Parsley", "Honeysuckle", "Hydrangas", "Broccoli", "Peas", "Kidney Beans", "Brussel Sprouts", "Beets", "Green Bell Peppers", "Red Bell Peppers", "Orange Bell Peppers", ""]
+
+scale = ["low", "medium", "high"]
+
 99.times do
   
     seed = (0...50).map { ('a'..'z').to_a[rand(26)] }.join
@@ -105,5 +110,7 @@ puts "membersplots created"
 
 
 # Plant.create(name: "Carrot", img_url: "http://lorempixel.com/250/250/nature/", height: 2, water: "low", sunlight: "medium", member_id: 1, plot_id: 1)
+
+
 
 puts "plants created"
